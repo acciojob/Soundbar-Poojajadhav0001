@@ -1,1 +1,30 @@
 /*  your css code here. If applicable */
+#buttons{
+	
+	background-color:mediumpurple;
+	display:flex;
+	flex-direction: row;
+	height:100px;
+	gap:20px;
+	align-items:center;
+	
+}
+.btn{
+	color:white;
+	background-color:purple;
+	height:30px;
+	width:100px;
+	border-radius:5%;
+	
+}
+.stop{
+	;
+	color:white;
+	background-color:purple;
+	height:30px;
+	width:100px;
+	border-radius:5%;
+	
+	
+	
+}
