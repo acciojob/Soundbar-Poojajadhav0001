@@ -1,30 +1,29 @@
 /*  your css code here. If applicable */
-#buttons{
+body{
 	
-	background-color:mediumpurple;
+}
+#buttons{
 	display:flex;
-	flex-direction: row;
-	height:100px;
-	gap:20px;
-	align-items:center;
 	
 }
 .btn{
-	color:white;
-	background-color:purple;
-	height:30px;
-	width:100px;
-	border-radius:5%;
-	
+	height: 50px;
+	width:70px;
+	background-color:lightblue;
+	border-radius:10px;
+	margin-top:100px;
+}
+.btn:hover{
+	height:70px;
 }
 .stop{
-	;
-	color:white;
-	background-color:purple;
-	height:30px;
-	width:100px;
-	border-radius:5%;
+	height: 50px;
+	width:70px;
+	background-color:red;
+	border-radius:10px;
+	margin-top:100px;
 	
-	
-	
+}
+.stop:hover{
+	height:70px;
 }
