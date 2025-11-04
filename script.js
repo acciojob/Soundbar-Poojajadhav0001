@@ -1,25 +1,26 @@
 //your JS code here. If required.
-const applause = new Audio("sounds/applause.mp3");
-const bao = new Audio("sounds/bao.mp3");
-const gasp = new Audio("sounds/gasp.mp3");
-const tada = new Audio("sounds/tada.mp3");
-const victory = new Audio("sounds/victory.mp3");
-const wrong = new Audio("sounds/wrong.mp3");
+// 1️⃣ सर्व sound names एका array मध्ये ठेवा
+const sounds = ["applause", "bao", "gasp", "tada", "victory", "wrong"];
 
+// 2️⃣ प्रत्येक sound साठी Audio object तयार करा
+const audios = sounds.map(sound => new Audio(`sounds/${sound}.mp3`));
+
+// 3️⃣ सर्व आवाज बंद करणारी function
 function stopAllSounds() {
-  applause.pause(); applause.currentTime = 0;
-  bao.pause(); bao.currentTime = 0;
-  gasp.pause(); gasp.currentTime = 0;
-  tada.pause(); tada.currentTime = 0;
-  victory.pause(); victory.currentTime = 0;
-  wrong.pause(); wrong.currentTime = 0;
+  audios.forEach(audio => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
 }
 
-document.querySelector(".btn:nth-child(1)").onclick = () => { stopAllSounds(); applause.play(); };
-document.querySelector(".btn:nth-child(2)").onclick = () => { stopAllSounds(); bao.play(); };
-document.querySelector(".btn:nth-child(3)").onclick = () => { stopAllSounds(); gasp.play(); };
-document.querySelector(".btn:nth-child(4)").onclick = () => { stopAllSounds(); tada.play(); };
-document.querySelector(".btn:nth-child(5)").onclick = () => { stopAllSounds(); victory.play(); };
-document.querySelector(".btn:nth-child(6)").onclick = () => { stopAllSounds(); wrong.play(); };
+// 4️⃣ प्रत्येक बटणावर click event लावा
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    stopAllSounds();
+    audios[index].play();
+  });
+});
 
-document.querySelector(".stop").onclick = stopAllSounds;
+// 5️⃣ stop बटणासाठी event
+document.querySelector(".stop").addEventListener("click", stopAllSounds);
