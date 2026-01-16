@@ -1,26 +1,23 @@
-//your JS code here. If required.
-// 1️⃣ सर्व sound names एका array मध्ये ठेवा
-const sounds = ["applause", "bao", "gasp", "tada", "victory", "wrong"];
+ const sounds = ['applause','boo','gasp','tada','victory','wrong'];
+        const buttons = document.getElementById('buttons');
 
-// 2️⃣ प्रत्येक sound साठी Audio object तयार करा
-const audios = sounds.map(sound => new Audio(`sounds/${sound}.mp3`));
+        sounds.forEach((sound) => {
+            const audio = document.createElement('audio');
+            audio.id = sound;
+            audio.src = `./sounds/${sound}.mp3`;
+            document.body.appendChild(audio);
 
-// 3️⃣ सर्व आवाज बंद करणारी function
-function stopAllSounds() {
-  audios.forEach(audio => {
-    audio.pause();
-    audio.currentTime = 0;
-  });
-}
+            const btn = document.createElement('button');
+            btn.className = 'btn';
+            btn.textContent = sound;
 
-// 4️⃣ प्रत्येक बटणावर click event लावा
-const buttons = document.querySelectorAll(".btn");
-buttons.forEach((button, index) => {
-  button.addEventListener("click", () => {
-    stopAllSounds();
-    audios[index].play();
-  });
-});
+            btn.addEventListener('click', () => {
+                stopSounds();
+                const el = document.getElementById(sound);
+                el.currentTime = 0;
 
-// 5️⃣ stop बटणासाठी event
-document.querySelector(".stop").addEventListener("click", stopAllSounds);
+                const p = el.play();
+                if(p && typeof p.catch === 'function') p.catch(() => {});
+
+            });
+        })

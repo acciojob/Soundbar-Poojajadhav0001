@@ -1,29 +1,39 @@
-/*  your css code here. If applicable */
-body{
-	
+ body {
+        font-family:Arial,  sans-serif;
+        text-align: center;
+        background: #111;
+        color: #fff;
+        padding: 40px;
+    }
+
+    #buttons {
+        display :flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap:15px;
+        margin-top:30px;
+    }
+
+ .btn {
+    background: #007bff;
+    color :  white;
+    border : none;
+    padding: 15px 25px;
+    border-radius: 8px;
 }
-#buttons{
-	display:flex;
-	
+
+.btn {
+    background: #0056b3;
 }
-.btn{
-	height: 50px;
-	width:70px;
-	background-color:lightblue;
-	border-radius:10px;
-	margin-top:100px;
+
+.stop {
+    background: crimson;
 }
-.btn:hover{
-	height:70px;
+
+.stop:hover {
+    background: darkred;
 }
-.stop{
-	height: 50px;
-	width:70px;
-	background-color:red;
-	border-radius:10px;
-	margin-top:100px;
-	
-}
-.stop:hover{
-	height:70px;
+
+audio {
+    display: none;
 }
