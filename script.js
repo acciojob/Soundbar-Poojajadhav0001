@@ -1,38 +1,38 @@
-const sounds = ['applause','boo','gasp','tada','victory','wrong'];
-        const buttons = document.getElementById('buttons');
 
-        sounds.forEach((sound) => {
-            const audio = document.createElement('audio');
-            audio.id = sound;
-            audio.src = `./sounds/${sound}.mp3`;
-            document.body.appendChild(audio);
+  const sounds = ['applause','boo','gasp','tada','victory','wrong'];
+  const buttons = document.getElementById('buttons');
 
-            const btn = document.createElement('button');
-            btn.className = 'btn';
-            btn.textContent = sound;
+  function stopSounds() {
+    sounds.forEach((sound) => {
+      const el = document.getElementById(sound);
+      if (!el) return;
+      el.pause();
+      el.currentTime = 0;
+    });
+  }
 
-            btn.addEventListener('click', () => {
-                stopSounds();
-                const el = document.getElementById(sound);
-                el.currentTime = 0;
+  sounds.forEach((sound) => {
+    const audio = document.createElement('audio');
+    audio.id = sound;
+    audio.src = `./sounds/${sound}.mp3`;
+    document.body.appendChild(audio);
 
-                const p = el.play();
-                });
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.textContent = sound;
 
-                buttons.appendChild(btn);
+    btn.addEventListener('click', () => {
+      stopSounds();
+      audio.currentTime = 0;
+      audio.play();
+    });
 
-                const stopBtn = document.createeLEMENT('button');
-                stopBtn.className='stop';
-                stopBtn.textContent='stop';
-                stopBtn.addEventListener('click',stopSounds);
-                buttons.appendChild(stopBtn);
+    buttons.appendChild(btn);
+  });
 
-                function stopSounds() {
-                    sounds.forEach((sound) => {
-                        const el = document.getElementById(sound);
-                        if(!el) return;
-                        el.pause();
-                        el.currentTime = 0;
-                    });
-                }
-        })
+  const stopBtn = document.createElement('button');
+  stopBtn.className = 'stop';
+  stopBtn.textContent = 'Stop';
+  stopBtn.addEventListener('click', stopSounds);
+  buttons.appendChild(stopBtn);
+
