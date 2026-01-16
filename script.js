@@ -1,4 +1,4 @@
- const sounds = ['applause','boo','gasp','tada','victory','wrong'];
+const sounds = ['applause','boo','gasp','tada','victory','wrong'];
         const buttons = document.getElementById('buttons');
 
         sounds.forEach((sound) => {
@@ -17,7 +17,22 @@
                 el.currentTime = 0;
 
                 const p = el.play();
-                if(p && typeof p.catch === 'function') p.catch(() => {});
+                });
 
-            });
+                buttons.appendChild(btn);
+
+                const stopBtn = document.createeLEMENT('button');
+                stopBtn.className='stop';
+                stopBtn.textContent='stop';
+                stopBtn.addEventListener('click',stopSounds);
+                buttons.appendChild(stopBtn);
+
+                function stopSounds() {
+                    sounds.forEach((sound) => {
+                        const el = document.getElementById(sound);
+                        if(!el) return;
+                        el.pause();
+                        el.currentTime = 0;
+                    });
+                }
         })
